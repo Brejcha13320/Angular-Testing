@@ -14,7 +14,7 @@ export class ProductsService {
     private http: HttpClient
   ) { }
 
-  getByCategory(categoryId: string, limit?: number, offset?: number) {
+  getByCategory(categoryId: string, limit?: number, offset?: number): Observable<Product[]> {
     let params = new HttpParams();
     if (limit && offset != null) {
       params = params.set('limit', limit);
@@ -23,7 +23,7 @@ export class ProductsService {
     return this.http.get<Product[]>(`${this.apiUrl}/categories/${categoryId}/products`, { params })
   }
 
-  getAllSimple() {
+  getAllSimple(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl}/products`);
   }
 
@@ -45,14 +45,14 @@ export class ProductsService {
       );
   }
 
-  fetchReadAndUpdate(id: string, dto: UpdateProductDTO) {
+  fetchReadAndUpdate(id: string, dto: UpdateProductDTO): Observable<[Product, Product]> {
     return zip(
       this.getOne(id),
       this.update(id, dto)
     );
   }
 
-  getOne(id: string) {
+  getOne(id: string): Observable<Product> {
     return this.http.get<Product>(`${this.apiUrl}/products/${id}`)
       .pipe(
         catchError((error: HttpErrorResponse) => {
@@ -78,7 +78,7 @@ export class ProductsService {
     return this.http.put<Product>(`${this.apiUrl}/products/${id}`, dto);
   }
 
-  delete(id: string) {
+  delete(id: string): Observable<boolean> {
     return this.http.delete<boolean>(`${this.apiUrl}/products/${id}`);
   }
 }
