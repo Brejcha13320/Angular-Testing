@@ -1,0 +1,18 @@
+name: CI for Angular
+on: push
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cone
+        uses: actions/checkout@v3
+      - name: Node Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        # el -- se pone para que los flats vayan al comando que va ejecutar el npm run test
+        # es decir el ng test de los scripts
+        run: npm run test -- --no-watch --code-coverage --browsers=ChromeHeadlessCI
