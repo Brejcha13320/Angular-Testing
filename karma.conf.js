@@ -38,9 +38,13 @@ module.exports = function (config) {
         },
       },
     },
-    reporters: ["mocha"],
-    browsers: ["ChromeHeadless"],
-    singleRun: true,
-    restartOnFileChange: true,
+    reporters: ['mocha'],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    browsers: ['ChromeHeadless'],
+    singleRun: false,
+    restartOnFileChange: true
   });
 };

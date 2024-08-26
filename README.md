@@ -1,3 +1,9 @@
+<p  align="center"  >
+
+<img  src="https://angular.dev/assets/images/press-kit/angular_wordmark_gradient.png"  width="200"  />
+
+</p>
+
 # TestingServices
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.2.
@@ -21,6 +27,13 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Order of Services Testing
+
+1. CalculatorService
+2. ValueService
+3. MasterService
+4. ProductsService
 
 ## Further help
 
