@@ -1,0 +1,6 @@
+<div *ngIf="person">
+  <h3>Hola, {{ person.name }}</h3>
+  <p>Mi altura es: {{ person.height }}</p>
+  <button class="btn_imc" (click)="calcIMC()">IMC: {{ imc }}</button>
+  <button class="btn_choose" (click)="onEmit()">Choose</button>
+</div>
